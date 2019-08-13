@@ -11,7 +11,7 @@
   <body>
 
     <div class="navbar">
-        <div id = "home">Home soon to be replaced by the logo</div>
+        <div id = "home"><img src="images/Logo.png"></div>
         <div class="dropdown">
           <button class="dropbtn">Help 
             <i class="fa fa-caret-down"></i>
@@ -143,21 +143,21 @@
     <script>
       let body = document.querySelector("body");
 
-// make a changeColor function
-function changeColor() {
-    // generate 3 random numbers between o and 255
-    let num1= parseInt(Math.random() * 255);
-    let num2= parseInt(Math.random() * 255);
-    let num3= parseInt(Math.random() * 255);
+      // // make a changeColor function
+      // function changeColor() {
+      //     // generate 3 random numbers between o and 255
+      //     let num1= parseInt(Math.random() * 255);
+      //     let num2= parseInt(Math.random() * 255);
+      //     let num3= parseInt(Math.random() * 255);
 
-    // change backgroundColor of colorDiv 
-    body.style.backgroundColor = "rgb(" + num1 + ","+ num2 + ","+ num3 + ")";
-    // setTimeout
-    setTimeout(changeColor,1000);
-}
+      //     // change backgroundColor of colorDiv 
+      //     body.style.backgroundColor = "rgb(" + num1 + ","+ num2 + ","+ num3 + ")";
+      //     // setTimeout
+      //     setTimeout(changeColor,1000);
+      // }
 
-// call the changeColor function
-changeColor();
+      // // call the changeColor function
+      // changeColor();
 
     
     </script>

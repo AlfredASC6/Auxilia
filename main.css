@@ -118,3 +118,7 @@
 #person1 {
     border: solid black 3px;
 }
+
+body{
+  background-image: linear-gradient(rgb(24, 253, 81),rgba(16, 221, 160, 0.856),rgb(19, 175, 247));
+}
