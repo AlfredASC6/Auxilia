@@ -118,3 +118,7 @@
 #person1 {
     border: solid black 3px;
 }
+.title {
+  display: flex;
+  justify-content: center;
+}
