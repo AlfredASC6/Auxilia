@@ -76,6 +76,12 @@
     </div>
     <div id = "motivate_tab">Motivational Videos & Text
 
+        <video width="320" height="240" autoplay>
+            <source src="https://www.youtube.com/watch?v=HqSoxMOrVeE" type="video/mp4">
+            <source src="https://www.youtube.com/watch?v=48H7FkH7EeQ" type="video/ogg">
+          Your browser does not support the video tag.
+          </video>
+
 
     </div>
     
@@ -133,6 +139,29 @@
         
       }
     </script>
+
+    <script>
+      let body = document.querySelector("body");
+
+// make a changeColor function
+function changeColor() {
+    // generate 3 random numbers between o and 255
+    let num1= parseInt(Math.random() * 255);
+    let num2= parseInt(Math.random() * 255);
+    let num3= parseInt(Math.random() * 255);
+
+    // change backgroundColor of colorDiv 
+    body.style.backgroundColor = "rgb(" + num1 + ","+ num2 + ","+ num3 + ")";
+    // setTimeout
+    setTimeout(changeColor,1000);
+}
+
+// call the changeColor function
+changeColor();
+
+    
+    </script>
+
         
   </body>
 </html>
