@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+
+    <title>Demo Day 2019</title>
+</head>
+  <body>
+
+    <div class="navbar">
+        <div id = "home">Home soon to be replaced by the logo</div>
+        <div class="dropdown">
+          <button class="dropbtn">Help 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <div id = "psychologist">Speak to psychologists</div>
+            <!-- <a href="#">Link 2</a>
+            <a href="#">Link 3</a> -->
+          </div>
+        </div> 
+        <div class = "dropdown">
+          <button class = "dropbtn">Other Experiences
+            <i class = "fa fa-caret-down"></i>
+          </button>
+          <div class = "dropdown-content">
+            <div id = "other">Read other people's experiences</div>
+            <div id = "post">Post Your Own Experience</div>
+          </div>
+        </div>
+        
+        <div id = "motivate">Motivational Videos and Text</div>
+        <form>
+          <input type = "text" placeholder = "Search" id = "search">
+          <button id = "enter">Enter</button>
+        </form>
+      </div>
+    
+    <div id = "home_tab">
+      <div id = "center_these">
+          <div id = "title">Welcome to Auxilia</div>
+          <div id = "description">Helping minds one click at a time</div>
+      </div>
+      <p id = "description2">Daily Positivity:</p>
+      <div id = "column">
+          <div id = "poems">Poems: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          <div id = "image">
+            <img src = "happiness.jfif">
+          </div>
+          <div id = "quote">Daily Quote: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div> 
+      </div>
+     
+    </div>
+    <div id = "help_tab">
+      <div id = "Chat_room">Work in progress</div>
+
+    </div>
+    <div id = "others_tab">
+      <h1>This is where u can see people's experiences</h1>
+      <div id = "expeiences">
+        <div id = "person1">
+          <div>Title</div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+
+
+
+      </div>
+    </div>
+    <div id = "post_tab">
+      <h1>This is where u can post ir experiences so other people will know about them</h1>
+
+    </div>
+    <div id = "motivate_tab">Motivational Videos & Text
+
+
+    </div>
+    
+    <script>
+      let home = document.getElementById("home")
+      let home_tab = document.getElementById("home_tab");
+      let help_tab = document.getElementById("help_tab");
+      // this is for other people's expereinces
+      let others_tab = document.getElementById("others_tab");
+      let motivate_tab = document.getElementById("motivate_tab");
+      let post_tab = document.getElementById("post_tab");
+      // this is for other people's experience
+      let other = document.getElementById("other");
+      let post = document.getElementById("post");
+      let motivate = document.getElementById("motivate");
+      let psychologist = document.getElementById("psychologist");
+
+      // making sure only the home tab is showing
+      home_tab.style.display = "block";
+      help_tab.style.display = "none";
+      others_tab.style.display = "none";
+      motivate_tab.style.display = "none";
+      post_tab.style.display = "none";
+
+      psychologist.onclick = function() {
+        post_tab.style.display = "none";
+        home_tab.style.display = "none";
+        help_tab.style.display = "block";
+        others_tab.style.display = "none";
+        motivate_tab.style.display = "none";
+      }
+      other.onclick = function(event) {
+        event.preventDefault();
+        others_tab.style.display = "block";
+        help_tab.style.display = "none";
+        home_tab.style.display = "none";
+        motivate_tab.style.display = "none";
+      }
+      home.onclick = function() {
+        home_tab.style.display = "block";
+        help_tab.style.display = "none";
+        others_tab.style.display = "none";
+        motivate_tab.style.display = "none";
+        post_tab.style.display = "none";
+      }
+      post.onclick = function() {
+        post_tab.style.display = "block";
+        home_tab.style.display = "none";
+        others_tab.style.display = "none";
+        motivate_tab.style.display = "none";
+        help_tab.style.display = "none";
+      }
+      motivate.onclick = function() {
+        motivate_tab.style.display = "none";
+        
+      }
+    </script>
+        
+  </body>
+</html>
