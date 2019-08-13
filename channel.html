@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="design.css">
+
+    <title>Demo Day 2019</title>
+
+</head>
+<div id = "before_Login"></div>
+
+    <div id = "after-Login"></div>
+
+
+    <h1 id="header">Discussion</h1>
+    <br>
+    <h3>User To User</h3>
+    
+    <div id="chatroom"></div>
+    
+    <br><br>
+    
+    <form method="post" action="/form" autocomplete="off">
+      
+        <input type="text" id="user_text">
+        <button id= "submit">send</button>
+
+    </form>
+
+<body>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.3.5/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyC7_J5f2CGq6Ke4v88Mb-OpHMif_hty-Hg",
+    authDomain: "fir-day-test.firebaseapp.com",
+    databaseURL: "https://fir-day-test.firebaseio.com",
+    projectId: "fir-day-test",
+    storageBucket: "",
+    messagingSenderId: "394020227555",
+    appId: "1:394020227555:web:56bf9be672471e1a"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+
+
+  //Initialize a connection with 
+  let db = firebase.firestore();
+
+    //get references
+    let userInputTextbox = document.getElementById("user_text");
+    let submitButton = document.getElementById("submit");
+    let chatroomDiv = document.getElementById("chatroom");
+    let beforeLogin = document.getElementById("before_login");
+    let afterLogin = document.getElementById("after_login");
+
+
+
+    let username;
+
+    // saveButton.onclick = function(event) {
+        
+    //     event.preventDefault();
+
+    //     beforeLoginDiv.style.display = "none";
+    //     afterLoginDiv.style.display = "block";
+    // }
+
+let userEntranceTime = new Date().getTime();
+
+
+    //set up onclick for submitButton
+    submitButton.onclick = function (event) {
+        //prevent reloading
+        event.preventDefault();
+
+        //get the UNIX timestamp
+        let now = new Date();
+        let timestamp= new Date().getTime();
+        console.log("now :" + now);
+        console.log("Timestamp" + timestamp);
+
+        //extract hours, minutes,and seconds
+        let hours = now.getHours();
+        let minutes = now.getMinutes();
+        let seconds = now.getSeconds();
+        let month = now.getMonth();
+        let date = now.getDate();
+        console.log(month,date,hours,minutes,seconds);
+
+        //same some data to our database
+        db.collection("chatroom").add({
+            "chat" : userInputTextbox.value,
+            "timestamp": timestamp,
+            "month": month,
+            "date": date,
+            "hours" : hours,
+            "minutes" : minutes,
+            "seconds" : seconds,
+            // "username" : username
+        })
+
+        //console.log to successfully store
+        .then(function(ref) {
+            console.log("data stored successfully with a #: " + ref.id);
+
+        });
+
+        //clear userInputTextbox
+        userInputTextbox.value="";
+    }
+
+    db.collection("chatroom").orderBy("timestamp").onSnapshot(function(snapshot) {
+      chatroomDiv.innerHTML = "";
+        //iterate throught the database
+        for (let i= 0; i< snapshot.docs.length; i++) {
+          // console.log(snapshot.docs[i].timestamp > userEntranceTime, snapshot.docs[i].timestamp, userEntranceTime);
+          if(snapshot.docs[i].data().timestamp > userEntranceTime){
+            console.log('hello');
+            chatroomDiv.innerHTML += snapshot.docs[i].data().month + "/" + snapshot.docs[i].data().date + " ";
+            chatroomDiv.innerHTML += snapshot.docs[i].data().hours + ":" + snapshot.docs[i].data().minutes + ":" + snapshot.docs[i].data().seconds + " ";
+            chatroomDiv.innerHTML += snapshot.docs[i].data().chat + "<br>";
+            chatroomDiv.scrolltop += snapshot.docs[i].data().scrolltop;
+          }
+        }
+    });
+
+    </script>
+</body>
+  
+ 
+  
+  <p>Try the scrollbar in div.</p>
+  
+  <div onscroll="myFunction()"></div>
+  
+  <p>Scrolled <span id="demo">0</span> times.</p>
+  
+  <script>
+  var x = 0;
+  function myFunction() {
+    document.getElementById("demo").innerHTML = x += 1;
+  }
+
+  // service firebase.storage {
+  //   match /b/{bucket}/o {
+  //     match /{allPaths=**} {
+  //       allow read, write: if request.auth != null;
+  //     }
+  //   }
+  // }
+
+  </script>
+
+  <br>
+  <br>
+
+  <p id="copyright"> Auxilia  ©2019 </p>
+  
+
+</html>
