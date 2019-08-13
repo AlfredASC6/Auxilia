@@ -128,7 +128,8 @@
         motivate_tab.style.display = "none";
         help_tab.style.display = "none";
       }
-      motivate.onclick = function() {
+      motivate.onclick = function(event) {
+        event.preventDefault();
         motivate_tab.style.display = "block";
         post_tab.style.display = "none";
         home_tab.style.display = "none";
