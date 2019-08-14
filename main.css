@@ -134,6 +134,7 @@
     width: 25%;
     height: 200px;
     border: solid black 3px;
+    overflow: auto;
 }
 #center_these {
     display: flex;
