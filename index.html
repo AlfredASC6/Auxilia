@@ -10,7 +10,7 @@
 </head>
   <body>
 
-    <div class="navbar">
+    <div class="navbar" id = "navbar"> 
         <div><img src="images/Logo.png"  id = "home"></div>
         <div class="dropdown">
           <button class="dropbtn">Help 
@@ -55,7 +55,23 @@
      
     </div>
     <div id = "help_tab">
-      <div id = "Chat_room">Work in progress</div>
+      <div id = "login_tab">
+          <div id = "normal_user">
+                <input type = "text" placeholder = "Username" id = "normal_username">
+                <br><br>
+                <input type = "text" placeholder = "Password" id = "normal_password">
+                <br><br>
+                <button id = "login">Enter</button>
+          </div>
+          <div id = "therapist">
+              <input type = "text" placeholder = "Psychologist Login" id = "psycho_login">
+              <br><br>
+              <input type = "text" placeholder = "Enter Credentials" id = "psycho_password">
+              <br><br>
+              <button id = "plogin">Enter</button>
+          </div>
+        </div>
+
 
     </div>
     <div id = "others_tab">
@@ -65,15 +81,15 @@
           <div>Title</div>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
-
-
-
       </div>
     </div>
     <div id = "post_tab">
       <h1>This is where u can post ir experiences so other people will know about them</h1>
 
     </div>
+
+    
+
     <div id = "motivate_tab">
       <h1 class = "title">Motivational Videos and Text</h1>
       <iframe width="700" height="394" src="https://www.youtube.com/embed/HqSoxMOrVeE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -94,7 +110,11 @@
       let post = document.getElementById("post");
       let motivate = document.getElementById("motivate");
       let psychologist = document.getElementById("psychologist");
-
+      let login_button = document.getElementById("login");
+      let psych_login = document.getElementById("plogin");
+      let normal_username = document.getElementById("normal_username");
+      let normal_passowrd = document.getElementById("normal_password");
+      
       // making sure only the home tab is showing
       home_tab.style.display = "block";
       help_tab.style.display = "none";
@@ -138,6 +158,10 @@
         home_tab.style.display = "none";
         others_tab.style.display = "none";
         help_tab.style.display = "none";
+      }
+      login_button.onclick = function(event) {
+        event.preventDefault();
+        
       }
     </script>
 
