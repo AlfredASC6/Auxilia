@@ -5,21 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="main.css">
-
+    <!-- <script rel="Script.js"></script> -->
     <title>Demo Day 2019</title>
 </head>
   <body>
    <script src="Script.js"></script>
     <div class="navbar">
-        <div><img src="images/Logo.png"  id = "home"></div>
+        <div id = "home"><img id="logo" src="images/Logo.png"></div>
         <div class="dropdown">
           <button class="dropbtn">Help 
             <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-content">
+<<<<<<< HEAD
+            <div id = "psychologist">Speak to psychologists</div> 
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+=======
             <div id = "psychologist">Speak to psychologists</div>
-            <!-- <a href="#">Link 2</a>
-            <a href="#">Link 3</a> -->
+            <a href="file:///C:/Users/Admin/Desktop/Code/week_6/Auxilia/channel.html">User to User</a>
+            <!-- <a href="">Support/a> -->
+>>>>>>> a73f85b0504ea893a89b0db838ce4076b2833217
           </div>
         </div> 
         <div class = "dropdown">
@@ -55,30 +61,210 @@
      
     </div>
     <div id = "help_tab">
-      <div id = "Chat_room">Work in progress</div>
+      <div id = "login_tab">
+          <div id = "normal_user">
+                <input type = "text" placeholder = "Username" id = "normal_username">
+                <br><br>
+                <input type = "text" placeholder = "Password" id = "normal_password">
+                <br><br>
+                <button id = "login">Enter</button>
+          </div>
+          <div id = "therapist">
+              <input type = "text" placeholder = "Psychologist Login" id = "psycho_login">
+              <br><br>
+              <input type = "text" placeholder = "Enter Credentials" id = "psycho_password">
+              <br><br>
+              <button id = "plogin">Enter</button>
+          </div>
+        </div>
 
+
+        <div id = "before_Login"></div>
+
+        <div id = "after-Login"></div>
+    
+    
+        <h1 id="header">Discussion</h1>
+        <br>
+        <h3>User To User</h3>
+        
+        <div id="chatroom"></div>
+        
+        <br><br>
+        
+        <form method="post" action="/form" autocomplete="off">
+          
+            <input type="text" id="user_text">
+            <button id= "submit">send</button>
+    
+        </form>
+    
+    <body>
+    
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase.js"></script>
+    
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#config-web-app -->
+    
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyC7_J5f2CGq6Ke4v88Mb-OpHMif_hty-Hg",
+        authDomain: "fir-day-test.firebaseapp.com",
+        databaseURL: "https://fir-day-test.firebaseio.com",
+        projectId: "fir-day-test",
+        storageBucket: "",
+        messagingSenderId: "394020227555",
+        appId: "1:394020227555:web:56bf9be672471e1a"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    
+    
+    
+      //Initialize a connection with 
+      let db = firebase.firestore();
+    
+        //get references
+        let userInputTextbox = document.getElementById("user_text");
+        let submitButton = document.getElementById("submit");
+        let chatroomDiv = document.getElementById("chatroom");
+        let beforeLogin = document.getElementById("before_login");
+        let afterLogin = document.getElementById("after_login");
+    
+    
+    
+        let username;
+    
+        // saveButton.onclick = function(event) {
+            
+        //     event.preventDefault();
+    
+        //     beforeLoginDiv.style.display = "none";
+        //     afterLoginDiv.style.display = "block";
+        // }
+    
+    let userEntranceTime = new Date().getTime();
+    
+    
+        //set up onclick for submitButton
+        submitButton.onclick = function (event) {
+            //prevent reloading
+            event.preventDefault();
+    
+            //get the UNIX timestamp
+            let now = new Date();
+            let timestamp= new Date().getTime();
+            console.log("now :" + now);
+            console.log("Timestamp" + timestamp);
+    
+            //extract hours, minutes,and seconds
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+            let month = now.getMonth();
+            let date = now.getDate();
+            console.log(month,date,hours,minutes,seconds);
+    
+            //same some data to our database
+            db.collection("chatroom").add({
+                "chat" : userInputTextbox.value,
+                "timestamp": timestamp,
+                "month": month,
+                "date": date,
+                "hours" : hours,
+                "minutes" : minutes,
+                "seconds" : seconds,
+                // "username" : username
+            })
+    
+            //console.log to successfully store
+            .then(function(ref) {
+                console.log("data stored successfully with a #: " + ref.id);
+    
+            });
+    
+            //clear userInputTextbox
+            userInputTextbox.value="";
+        }
+    
+        db.collection("chatroom").orderBy("timestamp").onSnapshot(function(snapshot) {
+          chatroomDiv.innerHTML = "";
+            //iterate throught the database
+            for (let i= 0; i< snapshot.docs.length; i++) {
+              // console.log(snapshot.docs[i].timestamp > userEntranceTime, snapshot.docs[i].timestamp, userEntranceTime);
+              if(snapshot.docs[i].data().timestamp > userEntranceTime){
+                console.log('hello');
+                chatroomDiv.innerHTML += snapshot.docs[i].data().month + "/" + snapshot.docs[i].data().date + " ";
+                chatroomDiv.innerHTML += snapshot.docs[i].data().hours + ":" + snapshot.docs[i].data().minutes + ":" + snapshot.docs[i].data().seconds + " ";
+                chatroomDiv.innerHTML += snapshot.docs[i].data().chat + "<br>";
+                chatroomDiv.scrolltop += snapshot.docs[i].data().scrolltop;
+              }
+            }
+        });
+    
+        </script>
+    </body>
+      
+     
+      <div onscroll="myFunction()"></div>
+      
+      <script>
+      var x = 0;
+      function myFunction() {
+        document.getElementById("demo").innerHTML = x += 1;
+      }
+    
+      // service firebase.storage {
+      //   match /b/{bucket}/o {
+      //     match /{allPaths=**} {
+      //       allow read, write: if request.auth != null;
+      //     }
+      //   }
+      // }
+    
+      </script>
+    
+      <br>
+      <br>
+    
+      <p id="copyright"> Auxilia  ©2019 </p>
     </div>
-    <div id = "others_tab">
-      <h1>This is where u can see people's experiences</h1>
+
+     <div id = "others_tab">
+      <h1>Experiences</h1>
       <div id = "expeiences">
         <div id = "person1">
           <div>Title</div>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          
+          <br><br>
+          <p>Here you can read others' inspiring stories of self-appreciation and changes from battling depression</p>
         </div>
-
+        
 
 
       </div>
     </div>
     <div id = "post_tab">
-      <h1>This is where u can post ir experiences so other people will know about them</h1>
-
+      <h1>Tell Your Story</h1>
+      <p>We invite you to share with others your story of triumph over depression and anxiety</p>
+      
     </div>
+
+    
+
+    
     <div id = "motivate_tab">
+<<<<<<< HEAD
+      <h1>Motivational Videos and Text</h1>
+=======
       <h1 class = "title">Motivational Videos and Text</h1>
+>>>>>>> a73f85b0504ea893a89b0db838ce4076b2833217
       <iframe width="700" height="394" src="https://www.youtube.com/embed/HqSoxMOrVeE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <iframe width="700" height="394" src="https://www.youtube.com/embed/48H7FkH7EeQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <iframe width="700" height="394" src="https://www.youtube.com/embed/AvuQVi4IinY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      
     </div>
     
     <script>
@@ -94,7 +280,11 @@
       let post = document.getElementById("post");
       let motivate = document.getElementById("motivate");
       let psychologist = document.getElementById("psychologist");
-
+      let login_button = document.getElementById("login");
+      let psych_login = document.getElementById("plogin");
+      let normal_username = document.getElementById("normal_username");
+      let normal_passowrd = document.getElementById("normal_password");
+      
       // making sure only the home tab is showing
       home_tab.style.display = "block";
       help_tab.style.display = "none";
@@ -139,6 +329,10 @@
         others_tab.style.display = "none";
         help_tab.style.display = "none";
       }
+      login_button.onclick = function(event) {
+        event.preventDefault();
+        
+      }
     </script>
 
     <script>
@@ -159,28 +353,15 @@
 
       // // call the changeColor function
       // changeColor();
-      // let body = document.querySelector("body");
-//       let body = document.querySelector("body");
-
-// // make a changeColor function
-// function changeColor() {
-//     // generate 3 random numbers between o and 255
-//     let num1= parseInt(Math.random() * 255);
-//     let num2= parseInt(Math.random() * 255);
-//     let num3= parseInt(Math.random() * 255);
-
-//     // change backgroundColor of colorDiv 
-//     body.style.backgroundColor = "rgb(" + num1 + ","+ num2 + ","+ num3 + ")";
-//     // setTimeout
-//     setTimeout(changeColor,1000);
-// }
-
-// // call the changeColor function
-// changeColor();
 
     
     </script>
 
+   <br>
+   <br>
+
+   <p>Auxilia ©2019</p>
         
   </body>
+
 </html>
