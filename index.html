@@ -10,8 +10,13 @@
 </head>
   <body>
 
+<<<<<<< HEAD
+    <div class="navbar" id = "navbar"> 
+        <div><img src="images/Logo.png"  id = "home"></div>
+=======
     <div class="navbar">
         <div id = "home"><img id="logo" src="images/Logo.png"></div>
+>>>>>>> a4111554a37b7f276a71355b39fd862f8cebdd16
         <div class="dropdown">
           <button class="dropbtn">Help 
             <i class="fa fa-caret-down"></i>
@@ -55,6 +60,26 @@
      
     </div>
     <div id = "help_tab">
+<<<<<<< HEAD
+      <div id = "login_tab">
+          <div id = "normal_user">
+                <input type = "text" placeholder = "Username" id = "normal_username">
+                <br><br>
+                <input type = "text" placeholder = "Password" id = "normal_password">
+                <br><br>
+                <button id = "login">Enter</button>
+          </div>
+          <div id = "therapist">
+              <input type = "text" placeholder = "Psychologist Login" id = "psycho_login">
+              <br><br>
+              <input type = "text" placeholder = "Enter Credentials" id = "psycho_password">
+              <br><br>
+              <button id = "plogin">Enter</button>
+          </div>
+        </div>
+
+=======
+>>>>>>> a4111554a37b7f276a71355b39fd862f8cebdd16
 
         <div id = "before_Login"></div>
 
@@ -219,9 +244,12 @@
           <br><br>
           <p>Here you can read others' inspiring stories of self-appreciation and changes from battling depression</p>
         </div>
+<<<<<<< HEAD
+=======
         
 
 
+>>>>>>> a4111554a37b7f276a71355b39fd862f8cebdd16
       </div>
     </div>
     <div id = "post_tab">
@@ -229,8 +257,16 @@
       <p>We invite you to share with others your story of triumph over depression and anxiety</p>
       
     </div>
+<<<<<<< HEAD
+
+    
+
+    <div id = "motivate_tab">
+      <h1 class = "title">Motivational Videos and Text</h1>
+=======
     <div id = "motivate_tab">Motivational Videos & Text
       
+>>>>>>> a4111554a37b7f276a71355b39fd862f8cebdd16
       <iframe width="700" height="394" src="https://www.youtube.com/embed/HqSoxMOrVeE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <iframe width="700" height="394" src="https://www.youtube.com/embed/48H7FkH7EeQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       
@@ -249,7 +285,11 @@
       let post = document.getElementById("post");
       let motivate = document.getElementById("motivate");
       let psychologist = document.getElementById("psychologist");
-
+      let login_button = document.getElementById("login");
+      let psych_login = document.getElementById("plogin");
+      let normal_username = document.getElementById("normal_username");
+      let normal_passowrd = document.getElementById("normal_password");
+      
       // making sure only the home tab is showing
       home_tab.style.display = "block";
       help_tab.style.display = "none";
@@ -293,6 +333,10 @@
         home_tab.style.display = "none";
         others_tab.style.display = "none";
         help_tab.style.display = "none";
+      }
+      login_button.onclick = function(event) {
+        event.preventDefault();
+        
       }
     </script>
 
