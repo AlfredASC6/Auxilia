@@ -3,6 +3,13 @@
     overflow: hidden;
     background-color: #333;
     font-family: Arial;
+    font-size: 24px;
+
+
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    
   }
   
   /* Links inside the navbar */
@@ -13,12 +20,18 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    
+    image-rendering: optimizeQuality;
+
+
   }
   
   /* The dropdown container */
   .dropdown {
     float: left;
     overflow: hidden;
+
+    
   }
   
   /* Dropdown button */
@@ -127,3 +140,15 @@ body{
   display: flex;
   justify-content: center;
 }
+
+#chatroom{
+ color:green;
+}
+
+#logo{
+  width: 150px;
+  height: inherit;
+}
+
+
+
