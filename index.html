@@ -9,7 +9,7 @@
     <title>Demo Day 2019</title>
 </head>
   <body>
-
+   <script src="Script.js" defer></script>
     <div class="navbar">
         <div id = "home"><img id="logo" src="images/Logo.png"></div>
         <div class="dropdown">
@@ -18,7 +18,7 @@
           </button>
           <div class="dropdown-content">
             <div id = "psychologist">Speak to psychologists</div>
-            <a href="file:///C:/Users/Admin/Desktop/Code/week_6/Auxilia/channel.html">User to User</a>
+            <a href="channel.html">User to User</a>
             <!-- <a href="">Support/a> -->
           </div>
         </div> 
@@ -46,7 +46,7 @@
       </div>
       <p id = "description2">Daily Positivity:</p>
       <div id = "column">
-          <div id = "poems">Poems: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          <div id = "poems">Daily poems:  </div>
           <div id = "image">
             <img src = "happiness.jfif">
           </div>
@@ -75,23 +75,23 @@
 
         <div id = "before_Login"></div>
 
-        <div id = "after-Login"></div>
-    
-    
-        <h1 id="header">Discussion</h1>
-        <br>
-        <h3>User To User</h3>
-        
-        <div id="chatroom"></div>
-        
-        <br><br>
-        
-        <form method="post" action="/form" autocomplete="off">
+        <div id = "after-Login">
+
+          <h1 id="header">Helpline</h1>
+          <br>
+          <h3>User To Psychologist</h3>
           
-            <input type="text" id="user_text">
-            <button id= "submit">send</button>
-    
-        </form>
+          <div id="chatroom"></div>
+          
+          <br><br>
+          
+          <form method="post" action="/form" autocomplete="off">
+            
+              <input type="text" id="user_text">
+              <button id= "submit">send</button>
+      
+          </form>
+        </div>
     
     <body>
     
@@ -125,10 +125,10 @@
         let submitButton = document.getElementById("submit");
         let chatroomDiv = document.getElementById("chatroom");
         let beforeLogin = document.getElementById("before_login");
-        let afterLogin = document.getElementById("after_login");
-    
-    
-    
+        let afterLogin = document.getElementById("after-Login");
+        let submit= document.getElementById("submit");
+        let loginForm = document.getElementById("login_tab");
+      
         let username;
     
         // saveButton.onclick = function(event) {
@@ -218,12 +218,14 @@
       //   }
       // }
     
+    
+    
       </script>
     
       <br>
       <br>
     
-      <p id="copyright"> Auxilia  ©2019 </p>
+      
     </div>
 
      <div id = "others_tab">
@@ -247,15 +249,24 @@
       
     </div>
 
-    
 
     
     <div id = "motivate_tab">
       <h1 class = "title">Motivational Videos and Text</h1>
       <iframe width="700" height="394" src="https://www.youtube.com/embed/HqSoxMOrVeE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <iframe width="700" height="394" src="https://www.youtube.com/embed/48H7FkH7EeQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      
+      <iframe width="670" height="377" src="https://www.youtube.com/embed/oYadJQq0cHQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="670" height="377" src="https://www.youtube.com/embed/AvuQVi4IinY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div id = "Motivational_quotes">
+          quotes:
+           <ul> “The strongest people aren't always the people who win, but the people who don't give up when they lose” </ul>
+            <ul>"Turning sadness into kindness
+            Your uniqueness into strength
+            It's okay to get lost so begin walking
+            Once again, once again"</ul>
+        </div>
     </div>
+
+    
     
     <script>
       let home = document.getElementById("home")
@@ -265,6 +276,8 @@
       let others_tab = document.getElementById("others_tab");
       let motivate_tab = document.getElementById("motivate_tab");
       let post_tab = document.getElementById("post_tab");
+      // others_tab.appendchild()
+
       // this is for other people's experience
       let other = document.getElementById("other");
       let post = document.getElementById("post");
@@ -322,6 +335,8 @@
       login_button.onclick = function(event) {
         event.preventDefault();
         
+        afterLogin.style.display= "block";
+        loginForm.style.display = "none";
       }
     </script>
 
