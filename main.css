@@ -150,5 +150,14 @@ body{
   height: inherit;
 }
 
+/* #before_login{
+  display: none;
+} */
 
+#after_login{
+  display: block;
+}
 
+#header{
+  font-family: Arial, Helvetica, sans-serif;
+}

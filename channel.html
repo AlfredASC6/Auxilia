@@ -66,9 +66,9 @@
     let afterLogin = document.getElementById("after_login");
 
 
-
+    //declare some variables
     let username;
-
+    
     // saveButton.onclick = function(event) {
         
     //     event.preventDefault();
@@ -97,6 +97,8 @@ let userEntranceTime = new Date().getTime();
         let seconds = now.getSeconds();
         let month = now.getMonth();
         let date = now.getDate();
+        // let year = now.getYear();
+        // let username = document.getElementById("after_login");
         console.log(month,date,hours,minutes,seconds);
 
         //same some data to our database
@@ -108,7 +110,7 @@ let userEntranceTime = new Date().getTime();
             "hours" : hours,
             "minutes" : minutes,
             "seconds" : seconds,
-            // "username" : username
+            
         })
 
         //console.log to successfully store
@@ -131,6 +133,7 @@ let userEntranceTime = new Date().getTime();
             chatroomDiv.innerHTML += snapshot.docs[i].data().month + "/" + snapshot.docs[i].data().date + " ";
             chatroomDiv.innerHTML += snapshot.docs[i].data().hours + ":" + snapshot.docs[i].data().minutes + ":" + snapshot.docs[i].data().seconds + " ";
             chatroomDiv.innerHTML += snapshot.docs[i].data().chat + "<br>";
+            // chatroomDiv.innerHTML += snapshot.docs[i].data().username;
             chatroomDiv.scrolltop += snapshot.docs[i].data().scrolltop;
           }
         }
