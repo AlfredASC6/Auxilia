@@ -123,6 +123,12 @@
     justify-content: space-around;
 }
 
+#motivate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 #poems {
     float: left;
     width: 25%;
@@ -193,7 +199,10 @@ body{
 #header{
   font-family: Arial, Helvetica, sans-serif;
 }
-/* 
-#psychologist{
-  
-} */
+
+#motivate_tab {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
