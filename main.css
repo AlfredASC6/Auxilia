@@ -49,6 +49,7 @@
   /* Add a red background color to navbar links on hover */
   .navbar div:hover, .dropdown:hover .dropbtn {
     background-color: red;
+    cursor: pointer;
   }
   
   /* Dropdown content (hidden by default) */
