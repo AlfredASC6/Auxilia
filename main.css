@@ -197,10 +197,12 @@ body{
 #header{
   font-family: Arial, Helvetica, sans-serif;
 }
-
 #motivate_tab {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
+#Motivational_quotes {
+  border: solid black 3px;
+  padding: 5px;
+}
