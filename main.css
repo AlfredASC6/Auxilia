@@ -153,12 +153,6 @@
 html{
   background-image: linear-gradient(rgb(24, 253, 81),rgba(16, 221, 160, 0.856),rgb(19, 175, 247));
   height: 100vh;
-<<<<<<< HEAD
-}
-*{
-  background-color: none;
-=======
->>>>>>> 1c775f1b3975b5f3399d52c24c669e72208f5a01
 }
 .title {
   display: flex;
