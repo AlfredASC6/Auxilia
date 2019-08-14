@@ -130,11 +130,11 @@
 }
 
 #poems {
-    float: left;
-    width: 25%;
-    height: 200px;
-    border: solid black 3px;
-    overflow: auto;
+  float: left;
+  width: 25%;
+  height: 200px;
+  border: solid black 3px;
+  overflow: auto;
 }
 #center_these {
     display: flex;
@@ -321,3 +321,6 @@ footer {
   bottom: 0;
   width: 100%;
 }
+  #person2{
+    border: solid black 3px;
+  }
