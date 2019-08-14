@@ -149,11 +149,13 @@
     border: solid black 3px;
 }
 
-body{
+html{
   background-image: linear-gradient(rgb(24, 253, 81),rgba(16, 221, 160, 0.856),rgb(19, 175, 247));
-
+  height: 100vh;
 }
-
+*{
+  background-color: none;
+}
 .title {
   display: flex;
   justify-content: center;
