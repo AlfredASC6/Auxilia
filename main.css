@@ -186,14 +186,14 @@ body{
   display: none;
 } */
 
-#after_login{
-  display: block;
+#after-Login{
+  display: none;
 }
 
 #header{
   font-family: Arial, Helvetica, sans-serif;
 }
-
+/* 
 #psychologist{
   
-}
+} */
