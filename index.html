@@ -75,23 +75,23 @@
 
         <div id = "before_Login"></div>
 
-        <div id = "after-Login"></div>
-    
-    
-        <h1 id="header">Discussion</h1>
-        <br>
-        <h3>User To User</h3>
-        
-        <div id="chatroom"></div>
-        
-        <br><br>
-        
-        <form method="post" action="/form" autocomplete="off">
+        <div id = "after-Login">
+
+          <h1 id="header">Helpline</h1>
+          <br>
+          <h3>User To Psychologist</h3>
           
-            <input type="text" id="user_text">
-            <button id= "submit">send</button>
-    
-        </form>
+          <div id="chatroom"></div>
+          
+          <br><br>
+          
+          <form method="post" action="/form" autocomplete="off">
+            
+              <input type="text" id="user_text">
+              <button id= "submit">send</button>
+      
+          </form>
+        </div>
     
     <body>
     
@@ -125,10 +125,10 @@
         let submitButton = document.getElementById("submit");
         let chatroomDiv = document.getElementById("chatroom");
         let beforeLogin = document.getElementById("before_login");
-        let afterLogin = document.getElementById("after_login");
-    
-    
-    
+        let afterLogin = document.getElementById("after-Login");
+        let submit= document.getElementById("submit");
+        let loginForm = document.getElementById("login_tab");
+      
         let username;
     
         // saveButton.onclick = function(event) {
@@ -218,12 +218,14 @@
       //   }
       // }
     
+    
+    
       </script>
     
       <br>
       <br>
     
-      <p id="copyright"> Auxilia  ©2019 </p>
+      
     </div>
 
      <div id = "others_tab">
@@ -332,6 +334,8 @@
       login_button.onclick = function(event) {
         event.preventDefault();
         
+        afterLogin.style.display= "block";
+        loginForm.style.display = "none";
       }
     </script>
 
