@@ -208,3 +208,6 @@ body{
   padding: 5px;
   overflow: scroll;
 }
+#person2{
+  border: solid black 3px;
+}
