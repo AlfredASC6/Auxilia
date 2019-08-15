@@ -337,9 +337,17 @@ footer {
   bottom: 0;
   width: 100%;
 }
-
+#person1 {
+    border: solid black 3px;
+    background-color: #f8ecec;
+    border-radius: 30px;
+    padding: 5px;
+}
 #person2{
     border: solid black 3px;
+    background-color: #f8ecec;
+    border-radius: 30px;
+    padding: 5px;
   }
 #textlocation {
   display: flex;
