@@ -146,16 +146,29 @@
   font-size: 18px;
 }
 #center_these {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 #others_tab {
-    display: flex;
+  display: flex;
 }
 #person1 {
-    border: solid black 3px;
+  border: solid black 3px;
+  
+  
+
+  background-color: antiquewhite;
+}
+
+#person2{
+ border: solid black 3px;
+
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+ font-size: 15px;
+
+ background-color: aquamarine;
 }
 
 html{
@@ -333,11 +346,12 @@ html{
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
-}
 
-#person2{
-    border: solid black 3px;
-  }
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-emphasis: bold;
+  
+  
+}
