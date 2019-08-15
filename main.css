@@ -2,7 +2,7 @@
 .navbar {
     overflow: hidden;
     background-color: #333;
-    font-family: Arial;
+    font-family: 'Tinos', serif;
     font-size: 24px;
 
 
@@ -117,6 +117,12 @@
     width: 25%;
     max-height: 230px;
     border: solid black 3px;
+
+    font-family: 'Cutive Mono', monospace;
+
+    /* NOTE: Use for possible font switch when reloading */
+    /* font-family: 'Nanum Myeongjo', serif;
+    font-family: 'Quattrocento', serif; */
 }
 #column {
     display: flex;
@@ -136,6 +142,9 @@
   height: 200px;
   border: solid black 3px;
   overflow: auto;
+
+  font-family: 'Cookie', cursive;
+  font-size: 18px;
 }
 #center_these {
     display: flex;
@@ -156,10 +165,21 @@ body{
 }
 *{
   background-color: none;
+  height: 100%;
 }
+
 .title {
   display: flex;
   justify-content: center;
+
+}
+
+/*this is for the front page*/
+#title{
+  
+  font-family: 'Nunito', sans-serif;
+  font-size: 48px;
+  font-stretch: expanded;
 }
 
 #home {
