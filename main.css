@@ -156,8 +156,12 @@
     border: solid black 3px;
 }
 
-html{
+body{
   background-image: linear-gradient(rgb(24, 253, 81),rgba(16, 221, 160, 0.856),rgb(19, 175, 247));
+  height: 250vh;
+}
+*{
+  background-color: none;
   height: 100%;
 }
 
@@ -228,7 +232,8 @@ html{
 #Motivational_quotes {
   border: solid black 3px;
   padding: 5px;
-  overflow: scroll;
+  overflow: auto;
+  border-radius: 30px;
 }
 
 * {box-sizing:border-box}
@@ -340,3 +345,34 @@ footer {
 #person2{
     border: solid black 3px;
   }
+#person1 {
+  width: 90%;
+  height: 300px;
+  overflow: auto;
+  border-radius: 30px;
+}
+#person2 {
+  width: 90%;
+  height: 300px;
+  overflow: auto;
+  border-radius: 30px;
+}
+#experiences {
+  display: flex;
+  justify-content: center;
+}
+/* #input {
+  width: 90%;
+  height: 300px;
+} */
+#textlocation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   width: 90%;
+   height: 300px;
+  border: solid black 3px;
+  background-color: rgb(241, 225, 225); 
+  border-radius: 30px;
+  overflow: auto;
+}

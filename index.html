@@ -149,130 +149,13 @@
     
     <body>
     
-      <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase.js"></script>
-    
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-         https://firebase.google.com/docs/web/setup#config-web-app -->
-    
-    <script>
-      // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyC7_J5f2CGq6Ke4v88Mb-OpHMif_hty-Hg",
-        authDomain: "fir-day-test.firebaseapp.com",
-        databaseURL: "https://fir-day-test.firebaseio.com",
-        projectId: "fir-day-test",
-        storageBucket: "",
-        messagingSenderId: "394020227555",
-        appId: "1:394020227555:web:56bf9be672471e1a"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-    
-    
-    
-      //Initialize a connection with 
-      let db = firebase.firestore();
-    
-        //get references
-        let userInputTextbox = document.getElementById("user_text");
-        let submitButton = document.getElementById("submit");
-        let chatroomDiv = document.getElementById("chatroom");
-        let beforeLogin = document.getElementById("before_login");
-        let afterLogin = document.getElementById("after-Login");
-        let submit= document.getElementById("submit");
-        let loginForm = document.getElementById("login_tab");
       
-    
-        // saveButton.onclick = function(event) {
-            
-        //     event.preventDefault();
-    
-        //     beforeLoginDiv.style.display = "none";
-        //     afterLoginDiv.style.display = "block";
-        // }
-    
-    let userEntranceTime = new Date().getTime();
-    
-    
-        //set up onclick for submitButton
-        submitButton.onclick = function (event) {
-            //prevent reloading
-            event.preventDefault();
-    
-            //get the UNIX timestamp
-            let now = new Date();
-            let timestamp= new Date().getTime();
-            console.log("now :" + now);
-            console.log("Timestamp" + timestamp);
-    
-            //extract hours, minutes,and seconds
-            let hours = now.getHours();
-            let minutes = now.getMinutes();
-            let seconds = now.getSeconds();
-            let month = now.getMonth();
-            let date = now.getDate();
-            console.log(month,date,hours,minutes,seconds);
-    
-            //same some data to our database
-            db.collection("chatroom").add({
-                "chat" : userInputTextbox.value,
-                "timestamp": timestamp,
-                "month": month,
-                "date": date,
-                "hours" : hours,
-                "minutes" : minutes,
-                // "username" : username
-            })
-    
-            //console.log to successfully store
-            .then(function(ref) {
-                console.log("data stored successfully with a #: " + ref.id);
-    
-            });
-    
-            //clear userInputTextbox
-            userInputTextbox.value="";
-        }
-    
-        db.collection("chatroom").orderBy("timestamp").onSnapshot(function(snapshot) {
-          chatroomDiv.innerHTML = "";
-            //iterate throught the database
-            for (let i= 0; i< snapshot.docs.length; i++) {
-              // console.log(snapshot.docs[i].timestamp > userEntranceTime, snapshot.docs[i].timestamp, userEntranceTime);
-              if(snapshot.docs[i].data().timestamp > userEntranceTime){
-                console.log('hello');
-                chatroomDiv.innerHTML += snapshot.docs[i].data().month + "/" + snapshot.docs[i].data().date + " ";
-                chatroomDiv.innerHTML += snapshot.docs[i].data().hours + ":" + snapshot.docs[i].data().minutes + ":" + snapshot.docs[i].data().seconds + " ";
-                chatroomDiv.innerHTML += snapshot.docs[i].data().chat + "<br>";
-                chatroomDiv.scrolltop += snapshot.docs[i].data().scrolltop;
-              }
-            }
-        });
-    
-        </script>
     </body>
       
      
       <div onscroll="myFunction()"></div>
       
-      <script>
-      var x = 0;
-      function myFunction() {
-        document.getElementById("demo").innerHTML = x += 1;
-      }
-    
-      // service firebase.storage {
-      //   match /b/{bucket}/o {
-      //     match /{allPaths=**} {
-      //       allow read, write: if request.auth != null;
-      //     }
-      //   }
-      // }
-    
-    
-    
-      </script>
+
     
       <br>
       <br>
@@ -302,11 +185,11 @@
           
         </div>
         <br>
-        <div id = "person2">
+        <p id = "person2">
             "When I was a freshman in high school I had my first ever anxiety attack. I remember it was a Tuesday, right at the end of first period biology class. I faked sick that day, told my teacher I needed to go home. I had no idea what was going on or how to handle the way my body was acting. This happened to me the next day and then the same thing the next two days after that, until my mom suggested I see a doctor. They told me I had something called generalized social anxiety. 
             Little did I know what this was at the time, I ended up dealing with anxiety for the rest of high school where it then followed me to college. I was such an outgoing, high energy, goal oriented individual at heart, but dealing with what was going on in my head held me back from all that for a long time. It took me years to see that I could be happy and continue moving forward while coping with anxiety. I ended up meeting so many different people while I was in college, while I traveled throughout Europe, dealing with different problems that were causing anxiety. For a long time I went to therapy, I also tried medicine and it all helped a little bit. But what I found helped me the most was surrounding myself with good people and then finding outlets in life to let this anxiety out, to express the way I was feeling in a new way. For me that ended up being making videos. I started spending hours on these videos, and eventually I was able to show my true self and let loose while making them. I started to see that and that's when I realized I needed to share that on YouTube.  At the end of the day I saw that we were all in this together, all dealing with our own problems either mentally or the challenges life throws at us… I realized I wasn’t alone. This right here is what made me want to speak out and create a video explaining my story; to tell people that they are not alone and the greatest thing we can do to show that is to express our stories, how we feel and support one another. I’ve learned that anxiety never completely goes away, that it’s more on a scale from 1-10. The question is how can we keep that number as low as possible, find ways to be happy and be at our best while chasing after our goals and dreams in life without being held back. The first step to me was knowing I had the right people in my life and from there I was able to make strong steps forward.
            believe my purpose and drive behind this lines up very closely with what ADAA strives to accomplish; an organization with the purpose to bring awareness to so many causes like this by uniting so many people to not only support each other, but to tell their personal stories about living with anxiety. ADAA is a community that has created a positive safe platform to shed light on the importance of coming together to bring awareness to mental health while showing it’s all about coming together. It’s an honor to be apart of that and this community as a whole. I wish that when I first started dealing with all this I had a community to turn to like this and that there was more being done about anxiety and depression. That all being said, this is my story" - Anonymous User 
-        </div>
+        </p>
 
 
       </div>
@@ -314,7 +197,9 @@
     <div id = "post_tab">
       <h1>Tell Your Story</h1>
       <p>We invite you to share with others your story of triumph over depression and anxiety</p>
-      
+      <div id = "textlocation">Share your story</div>
+      <input type = "text" placeholder = "Type your story" id = "input">
+      <button id = "share">Enter</button>
     </div>
 
 
@@ -338,13 +223,137 @@
     </div>
 
     
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase.js"></script>
+    
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#config-web-app -->
     
     <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyC7_J5f2CGq6Ke4v88Mb-OpHMif_hty-Hg",
+          authDomain: "fir-day-test.firebaseapp.com",
+          databaseURL: "https://fir-day-test.firebaseio.com",
+          projectId: "fir-day-test",
+          storageBucket: "",
+          messagingSenderId: "394020227555",
+          appId: "1:394020227555:web:56bf9be672471e1a"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      
+      
+      
+        //Initialize a connection with 
+        let db = firebase.firestore();
+      
+          //get references
+          let userInputTextbox = document.getElementById("user_text");
+          let submitButton = document.getElementById("submit");
+          let chatroomDiv = document.getElementById("chatroom");
+          let beforeLogin = document.getElementById("before_login");
+          let afterLogin = document.getElementById("after-Login");
+          let submit= document.getElementById("submit");
+          let loginForm = document.getElementById("login_tab");
+          let normal_username = document.getElementById("normal_username");
+          let login_button = document.getElementById("login");
+          let username_saved;
+      
+          // saveButton.onclick = function(event) {
+              
+          //     event.preventDefault();
+      
+          //     beforeLoginDiv.style.display = "none";
+          //     afterLoginDiv.style.display = "block";
+          // 
+          
+  
+      let userEntranceTime = new Date().getTime();
+      
+          login_button.onclick = function(event) {
+            event.preventdefault();
+            username_saved = normal_username.value;
+
+          }
+          //set up onclick for submitButton
+          submitButton.onclick = function (event) {
+              //prevent reloading
+              event.preventDefault();
+              //get the UNIX timestamp
+              let now = new Date();
+              let timestamp= new Date().getTime();
+              console.log("now :" + now);
+              console.log("Timestamp" + timestamp);
+      
+              //extract hours, minutes,and seconds
+              let hours = now.getHours();
+              let minutes = now.getMinutes();
+              let seconds = now.getSeconds();
+              let month = now.getMonth();
+              let date = now.getDate();
+              console.log(month,date,hours,minutes,seconds);
+      
+              //same some data to our database
+              db.collection("chatroom").add({
+                  "chat" : userInputTextbox.value,
+                  "timestamp": timestamp,
+                  "month": month,
+                  "date": date,
+                  "hours" : hours,
+                  "minutes" : minutes,
+                  "username_saved" : username_saved
+              })
+      
+              //console.log to successfully store
+              .then(function(ref) {
+                  console.log("data stored successfully with a #: " + ref.id);
+      
+              });
+      
+              //clear userInputTextbox
+              userInputTextbox.value="";
+          }
+      
+          db.collection("chatroom").orderBy("timestamp").onSnapshot(function(snapshot) {
+            chatroomDiv.innerHTML = "";
+              //iterate throught the database
+              for (let i= 0; i< snapshot.docs.length; i++) {
+                // console.log(snapshot.docs[i].timestamp > userEntranceTime, snapshot.docs[i].timestamp, userEntranceTime);
+                if(snapshot.docs[i].data().timestamp > userEntranceTime){
+                  console.log('hello');
+                  chatroomDiv.innerHTML += snapshot.docs[i].data().month + "/" + snapshot.docs[i].data().date + " ";
+                  chatroomDiv.innerHTML += snapshot.docs[i].data().hours + ":" + snapshot.docs[i].data().minutes + ":" + snapshot.docs[i].data().seconds + snapshot.docs[i].data().username_saved + " ";
+                  chatroomDiv.innerHTML += snapshot.docs[i].data().chat + "<br>";
+                  chatroomDiv.scrolltop += snapshot.docs[i].data().scrolltop;
+                }
+              }
+          });
+      
+        var x = 0;
+        function myFunction() {
+          document.getElementById("demo").innerHTML = x += 1;
+        }
+      
+        // service firebase.storage {
+        //   match /b/{bucket}/o {
+        //     match /{allPaths=**} {
+        //       allow read, write: if request.auth != null;
+        //     }
+        //   }
+        // }
+      
+      
+      
+      
       let home = document.getElementById("home")
       let home_tab = document.getElementById("home_tab");
       let help_tab = document.getElementById("help_tab");
       // this is for other people's expereinces
       let others_tab = document.getElementById("others_tab");
+
       let motivate_tab = document.getElementById("motivate_tab");
       let post_tab = document.getElementById("post_tab");
       // others_tab.appendchild()
@@ -354,11 +363,12 @@
       let post = document.getElementById("post");
       let motivate = document.getElementById("motivate");
       let psychologist = document.getElementById("psychologist");
-      let login_button = document.getElementById("login");
-      let psych_login = document.getElementById("plogin");
-      let normal_username = document.getElementById("normal_username");
-      let normal_passowrd = document.getElementById("normal_password");
       
+      let psych_login = document.getElementById("plogin");
+      let normal_passowrd = document.getElementById("normal_password");
+      let text_location = document.getElementById("textlocation");
+      let share_button = document.getElementById("share");
+
       // making sure only the home tab is showing
       home_tab.style.display = "block";
       help_tab.style.display = "none";
@@ -366,6 +376,10 @@
       motivate_tab.style.display = "none";
       post_tab.style.display = "none";
 
+      share_button.onclick = function(event) {
+        event.preventDefault();
+        text_location.innerHTML = document.getElementById("input").value;
+      }
       psychologist.onclick = function() {
         post_tab.style.display = "none";
         home_tab.style.display = "none";
@@ -404,14 +418,13 @@
         help_tab.style.display = "none";
       }
       login_button.onclick = function(event) {
-        event.preventDefault();
-        
-        afterLogin.style.display= "block";
-        loginForm.style.display = "none";
-      }
-    </script>
+          event.preventDefault();
+          username_saved = normal_username.value;
+          afterLogin.style.display= "block";
+          loginForm.style.display = "none";
+        }
+   
 
-    <script>
       let body = document.querySelector("body");
     
     </script>
@@ -419,7 +432,7 @@
    <br><br><br><br><br>
 
 
-   <footer >Auxilia ©2019</footer>
+   <footer>Auxilia ©2019</footer>
         
    
   </body>
