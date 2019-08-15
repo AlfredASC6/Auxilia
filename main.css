@@ -158,8 +158,14 @@ html{
 .title {
   display: flex;
   justify-content: center;
+
 }
 
+#title{
+  
+  font-family: 'Nunito', sans-serif;
+  font-size: 28px;
+}
 #home {
   width: 100px;
   height: 100%;
