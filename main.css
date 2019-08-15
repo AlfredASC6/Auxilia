@@ -341,3 +341,13 @@ footer {
 #person2{
     border: solid black 3px;
   }
+#textlocation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8ecec;
+  border: solid black 3px;
+  border-radius: 30px;
+  height: 300px;
+  width: 90%;
+}
