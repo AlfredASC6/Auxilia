@@ -154,14 +154,6 @@
 #others_tab {
   display: flex;
 }
-#person1 {
-  border: solid black 3px;
-  
-  
-
-  background-color: antiquewhite;
-}
-
 
 #person2{
  border: solid black 3px;
@@ -366,7 +358,6 @@ footer {
     padding: 5px;
   }
 
-  
 
 #textlocation {
   display: flex;
@@ -375,6 +366,8 @@ footer {
   background-color: #f8ecec;
   border: solid black 3px;
   border-radius: 30px;
-  height: 300px;
+  height: 500px;
   width: 90%;
+  overflow: auto;
+  padding: 5px;
 }
