@@ -295,7 +295,11 @@
               let month = now.getMonth();
               let date = now.getDate();
               console.log(month,date,hours,minutes,seconds);
-      
+              Number.prototype.pad = function(size) {
+                var s = String(this);
+                while (s.length < (size || 2)) {s = "0" + s;}
+                return s;
+              }
               //same some data to our database
               db.collection("chatroom").add({
                   "chat" : userInputTextbox.value,
@@ -304,6 +308,7 @@
                   "date": date,
                   "hours" : hours,
                   "minutes" : minutes,
+                  "seconds" : seconds,
                   "username_saved" : username_saved
               })
       
@@ -323,9 +328,9 @@
               for (let i= 0; i< snapshot.docs.length; i++) {
                 // console.log(snapshot.docs[i].timestamp > userEntranceTime, snapshot.docs[i].timestamp, userEntranceTime);
                 if(snapshot.docs[i].data().timestamp > userEntranceTime){
-                  console.log('hello');
+                  console.log(snapshot.docs[i].data());
                   chatroomDiv.innerHTML += snapshot.docs[i].data().month + "/" + snapshot.docs[i].data().date + " ";
-                  chatroomDiv.innerHTML += snapshot.docs[i].data().hours + ":" + snapshot.docs[i].data().minutes + ":" + snapshot.docs[i].data().seconds + snapshot.docs[i].data().username_saved + " ";
+                  chatroomDiv.innerHTML += snapshot.docs[i].data().hours + ":" + snapshot.docs[i].data().minutes + ":" + snapshot.docs[i].data().seconds.pad() + " " + snapshot.docs[i].data().username_saved + " ";
                   chatroomDiv.innerHTML += snapshot.docs[i].data().chat + "<br>";
                   chatroomDiv.scrolltop += snapshot.docs[i].data().scrolltop;
                 }
