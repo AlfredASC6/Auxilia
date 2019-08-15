@@ -19,7 +19,6 @@ let poemS= document.getElementById("poems");
 poemS.innerHTML = "Daily Poems: "+ PoetryArray[p];
 
 
-
 var slideIndex = 0;
 showSlides();
 
