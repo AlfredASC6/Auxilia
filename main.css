@@ -162,6 +162,7 @@
   background-color: antiquewhite;
 }
 
+
 #person2{
  border: solid black 3px;
 
@@ -354,4 +355,14 @@ footer {
   text-emphasis: bold;
   
   
+}
+#textlocation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8ecec;
+  border: solid black 3px;
+  border-radius: 30px;
+  height: 300px;
+  width: 90%;
 }
